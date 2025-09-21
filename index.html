@@ -1,1092 +1,594 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nagpur Scrap Services — Reliable Scrap Collection & Recycling</title>
-  <meta name="description" content="Nagpur's trusted scrap collection & recycling service — doorstep pickup, fair pricing, safe disposal." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nagpur Scrap Services — Reliable Scrap Collection</title>
+  <meta name="description"
+    content="Nagpur's trusted scrap collection & recycling service — doorstep pickup, fair pricing, safe disposal.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#4CAF50', /* A fresh, vibrant green */
+            'primary-dark': '#388E3C',
+            'secondary': '#1976D2', /* A clear, friendly blue */
+            'accent': '#FFC107', /* A bright, eye-catching gold */
+            'background-light': '#E8F5E9', /* A very light, clean green */
+            'background-dark': '#C8E6C9',
+            'text-dark': '#212121', /* Very dark grey for high contrast */
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    :root {
-      --primary: #1f7a5a;
-      --primary-dark: #166145;
-      --primary-light: #e7f9f0;
-      --secondary: #2563eb;
-      --secondary-light: #e0e7ff;
-      --accent: #f59e0b;
-      --text: #1f2937;
-      --text-light: #6b7280;
-      --bg: #f8fafb;
-      --card: #ffffff;
-      --border: #e5e7eb;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --radius: 8px;
-      --radius-lg: 12px;
-      --max-width: 1200px;
-      font-family: 'Inter', system-ui, sans-serif;
+    html {
+      scroll-behavior: smooth;
     }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
+
     body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      font-weight: 400;
+      background-color: #E8F5E9;
+      color: #212121;
     }
-    
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px;
+
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--tw-primary-dark), var(--tw-primary));
     }
-    
-    /* Header & Navigation */
-    header {
-      background: var(--card);
-      box-shadow: var(--shadow-sm);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 15px 0;
+
+    .cta-btn {
+      background: linear-gradient(90deg, #FFC107, #FF9800);
+      box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+      transition: all 0.3s ease;
     }
-    
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px;
+
+    .cta-btn:hover {
+      box-shadow: 0 6px 20px rgba(255, 193, 7, 0.6);
+      transform: translateY(-2px) scale(1.02);
     }
-    
-    .brand {
-      display: flex;
-      gap: 12px;
-      align-items: center;
+
+    .card {
+      background-color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
-    .logo-img {
-      width: 56px;
-      height: 56px;
-      border-radius: var(--radius);
-      object-fit: cover;
-      border: 2px solid var(--primary);
-    }
-    
-    .brand-text h1 {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0;
-    }
-    
-    .brand-text p {
-      font-size: 12px;
-      color: var(--text-light);
-      margin: 0;
-    }
-    
-    nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-    }
-    
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
-      transition: color 0.2s;
-      position: relative;
-    }
-    
-    nav a:hover {
-      color: var(--primary);
-    }
-    
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width 0.3s;
-    }
-    
-    nav a:hover::after {
-      width: 100%;
-    }
-    
-    .cta {
-      background: var(--primary);
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-    
-    .cta:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: var(--text);
-    }
-    
-    /* Hero Section */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      padding: 60px 0;
-    }
-    
-    .hero-content h2 {
-      font-size: 16px;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .hero-content h1 {
-      font-size: 42px;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      color: var(--text);
-    }
-    
-    .hero-content p {
-      color: var(--text-light);
-      margin-bottom: 28px;
-      font-size: 17px;
-    }
-    
-    .stats {
-      display: flex;
-      gap: 16px;
-      margin-top: 28px;
-    }
-    
-    .stat {
-      background: var(--card);
-      padding: 16px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-      flex: 1;
-    }
-    
-    .stat-value {
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-    
-    .stat-label {
-      font-size: 13px;
-      color: var(--text-light);
-    }
-    
-    /* Booking Card */
-    .booking-card {
-      background: var(--card);
-      padding: 30px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .booking-card h3 {
-      text-align: center;
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
-    
-    .booking-card > p {
-      text-align: center;
-      color: var(--text-light);
-      margin-bottom: 24px;
-    }
-    
-    .booking-options {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    
-    .booking-option {
-      background: #f9fafb;
-      padding: 20px;
-      border-radius: var(--radius);
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    
-    .booking-option:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .booking-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-    
-    .booking-option h4 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-    
-    .booking-option p {
-      color: var(--text-light);
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.2s;
-    }
-    
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-    
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
-    
-    .btn-whatsapp {
-      background: #25D366;
-      color: white;
-    }
-    
-    .btn-whatsapp:hover {
-      background: #128C7E;
-    }
-    
-    .btn-secondary {
-      background: var(--secondary);
-      color: white;
-    }
-    
-    .btn-secondary:hover {
-      background: #1d4ed8;
-    }
-    
-    /* Services Section */
-    .section {
-      padding: 60px 0;
-    }
-    
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    
-    .section-title h2 {
-      font-size: 32px;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-    
-    .section-title p {
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    
-    .service {
-      background: var(--card);
-      padding: 24px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    
-    .service:hover {
+
+    .card:hover {
       transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
-    
-    .service-icon {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      margin: 0 auto 16px;
-      display: block;
+
+    .icon-bounce {
+      animation: bounce 1.5s infinite;
     }
-    
-    .service h3 {
-      margin-bottom: 12px;
-      font-size: 20px;
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
-    
-    .service p {
-      color: var(--text-light);
-      font-size: 15px;
-    }
-    
-    /* Rates Section */
-    .rates-container {
-      background: var(--card);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-    }
-    
-    .rates-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      border-bottom: 1px solid var(--border);
-      background: #f9fafb;
-    }
-    
-    .rate-tab {
-      padding: 14px 20px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-      border-bottom: 2px solid transparent;
-    }
-    
-    .rate-tab.active {
-      color: var(--primary);
-      border-bottom: 2px solid var(--primary);
-      background: white;
-    }
-    
-    .rate-content {
-      display: none;
-      padding: 0;
-    }
-    
-    .rate-content.active {
-      display: block;
-    }
-    
-    .rates-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    .rates-table th {
-      background: var(--primary);
-      color: white;
-      text-align: left;
-      padding: 14px 16px;
-      font-weight: 600;
-    }
-    
-    .rates-table td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .rates-table tr:last-child td {
-      border-bottom: none;
-    }
-    
-    .rates-table tr:nth-child(even) {
-      background: #f9fafb;
-    }
-    
-    .sub-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 8px 0;
-    }
-    
-    .sub-table th {
-      background: #f3f4f6;
-      color: var(--text);
-      padding: 8px 12px;
-      font-size: 14px;
-    }
-    
-    .sub-table td {
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      font-size: 14px;
-    }
-    
-    /* Areas Section */
-    .areas {
-      background: var(--card);
-      padding: 30px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .areas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
-    
-    .area {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-light);
-    }
-    
-    .area i {
-      color: var(--primary);
-    }
-    
-    /* Contact Section */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    
-    .contact-info {
-      background: var(--card);
-      padding: 30px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .contact-info h3 {
-      color: var(--text-light);
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-    
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    
-    .contact-detail i {
-      width: 40px;
-      height: 40px;
-      background: var(--primary-light);
-      color: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    /* Footer */
-    footer {
-      background: var(--text);
-      color: white;
-      padding: 40px 0 20px;
-    }
-    
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-    
-    .footer-column h3 {
-      font-size: 18px;
-      margin-bottom: 16px;
-      color: white;
-    }
-    
-    .footer-column a {
-      color: #d1d5db;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 10px;
-      transition: color 0.2s;
-    }
-    
-    .footer-column a:hover {
-      color: white;
-    }
-    
-    .footer-bottom {
-      border-top: 1px solid #374151;
-      padding-top: 20px;
-      text-align: center;
-      color: #9ca3af;
-      font-size: 14px;
-    }
-    
-    /* WhatsApp Float Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      box-shadow: var(--shadow-lg);
-      z-index: 999;
-      transition: all 0.3s;
-      text-decoration: none;
-    }
-    
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      background: #128C7E;
-    }
-    
-    .whatsapp-tooltip {
-      position: absolute;
-      right: 70px;
-      background: var(--text);
-      color: white;
-      padding: 8px 12px;
-      border-radius: var(--radius);
-      font-size: 14px;
+
+    .fade-in-section {
       opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-      white-space: nowrap;
+      transition: opacity 1s ease-out, transform 1s ease-out;
+      transform: translateY(20px);
     }
-    
-    .whatsapp-float:hover .whatsapp-tooltip {
+
+    .fade-in-section.is-visible {
       opacity: 1;
+      transform: translateY(0);
     }
-    
-    /* Responsive Styles */
-    @media (max-width: 1024px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
-      .hero-content h1 {
-        font-size: 36px;
-      }
+
+    table thead tr {
+      background-color: #4CAF50;
+      color: #fff;
     }
-    
-    @media (max-width: 768px) {
-      .header-container {
-        padding: 0 15px;
-      }
-      
-      nav {
+
+    table tbody tr:nth-child(odd) {
+      background-color: #F1F8E9;
+    }
+
+    table tbody tr:nth-child(even) {
+      background-color: #E8F5E9;
+    }
+
+    .tab-button.active {
+      background-color: #fff;
+      color: #4CAF50;
+      border-bottom: 3px solid #4CAF50;
+    }
+
+    /* Modal styles */
+    .modal {
         display: none;
         position: fixed;
-        top: 80px;
+        z-index: 100;
         left: 0;
-        right: 0;
-        background: var(--card);
-        flex-direction: column;
-        padding: 20px;
-        box-shadow: var(--shadow-md);
-        gap: 15px;
-      }
-      
-      nav.active {
-        display: flex;
-      }
-      
-      .menu-toggle {
-        display: block;
-      }
-      
-      .stats {
-        flex-wrap: wrap;
-      }
-      
-      .stat {
-        flex: 1 0 calc(50% - 8px);
-        min-width: 0;
-      }
-      
-      .services {
-        grid-template-columns: 1fr;
-      }
-      
-      .section {
-        padding: 40px 0;
-      }
-      
-      .section-title h2 {
-        font-size: 28px;
-      }
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        align-items: center;
+        justify-content: center;
     }
-    
-    @media (max-width: 480px) {
-      .hero-content h1 {
-        font-size: 30px;
-      }
-      
-      .stat {
-        flex: 1 0 100%;
-      }
-      
-      .booking-card {
-        padding: 20px;
-      }
-      
-      .areas-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-content {
-        grid-template-columns: 1fr;
-      }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .close-button {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
     }
   </style>
 </head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <div class="brand">
-        <img src="logo.jpg" alt="Nagpur Scrap Services Logo" class="logo-img">
-        <div class="brand-text">
-          <h1>Nagpur Scrap Services</h1>
-          <p>Doorstep pickup • Fair prices • Eco friendly</p>
-        </div>
-      </div>
-      
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      
-      <nav id="main-nav">
-        <a href="#services">Services</a>
-        <a href="#rates">Rates</a>
-        <a href="#areas">Areas</a>
-        <a href="#book">Book Pickup</a>
-        <a href="#contact">Contact</a>
-        <a href="tel:+919511294837" class="cta">Call Now</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="container">
-      <div class="hero">
-        <div class="hero-content">
-          <h2><i class="fas fa-check-circle"></i> 100% Weight Guaranteed</h2>
-          <h1>Reliable Scrap Collection Across Nagpur</h1>
-          <p>We collect metal, electronics, paper, plastics and more — from homes, shops and small businesses. Transparent weighing, same-day pickup, and responsible recycling.</p>
-          
-          <div class="stats">
-            <div class="stat">
-              <div class="stat-value">5,000+ kg</div>
-              <div class="stat-label">Scrap recycled</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">4.8★</div>
-              <div class="stat-label">Customer rating</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">Nagpur</div>
-              <div class="stat-label">Service area</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Booking Card -->
-        <div id="book" class="booking-card">
-          <h3><i class="fas fa-calendar-check"></i> Book a Pickup</h3>
-          <p>Choose your preferred way to schedule a pickup</p>
-          
-          <div class="booking-options">
-            <div class="booking-option">
-              <div class="booking-icon">📄</div>
-              <h4>Online Form</h4>
-              <p>Fill our simple form for pickup request</p>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFqitgH8ePpSY3c7ZeNXAtHrS6KOJdzpsmbWOFFYPcvkZl0Q/viewform" target="_blank" class="btn btn-primary">
-                <i class="fas fa-pen"></i> Fill Form
-              </a>
-            </div>
-            
-            <div class="booking-option">
-              <div class="booking-icon">💬</div>
-              <h4>WhatsApp</h4>
-              <p>Message us directly on WhatsApp</p>
-              <a href="https://wa.me/919511294837?text=Hello%20Nagpur%20Scrap%20Services%2C%20I%20want%20to%20book%20a%20pickup" target="_blank" class="btn btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> Chat Now
-              </a>
-            </div>
-            
-            <div class="booking-option">
-              <div class="booking-icon">📞</div>
-              <h4>Call Directly</h4>
-              <p>Speak with our representative</p>
-              <a href="tel:+919511294837" class="btn btn-secondary">
-                <i class="fas fa-phone"></i> Call Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<body class="font-sans text-text-dark">
 
-    <!-- Services Section -->
-    <section id="services" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Our Services</h2>
-          <p>Comprehensive scrap collection and recycling solutions for homes and businesses</p>
-        </div>
-        
-        <div class="services">
-          <div class="service">
-            <img src="residential.jpg" alt="Residential Scrap Pickup" class="service-icon">
-            <h3>Residential Pickup</h3>
-            <p>Small and bulk pickups from houses, apartments and local shops across Nagpur.</p>
-          </div>
-          
-          <div class="service">
-            <img src="commercial.jpg" alt="Commercial Scrap Collection" class="service-icon">
-            <h3>Commercial Collection</h3>
-            <p>Regular collections for workshops, stores and offices — scheduled or on demand.</p>
-          </div>
-          
-          <div class="service">
-            <img src="ewaste.jpg" alt="E-waste Recycling" class="service-icon">
-            <h3>E-waste Handling</h3>
-            <p>Safe dismantling and recycling of electronics — certified disposal practices.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Rates Section -->
-    <section id="rates" class="section" style="background: #f9fafb;">
-      <div class="container">
-        <div class="section-title">
-          <h2>Scrap Material Rates</h2>
-          <p>Current market rates per kg/unit (subject to change based on market conditions)</p>
-        </div>
-        
-        <div class="rates-container">
-          <div class="rates-tabs">
-            <div class="rate-tab active" data-tab="metals">Metals</div>
-            <div class="rate-tab" data-tab="paper">Paper & Plastic</div>
-            <div class="rate-tab" data-tab="ewaste">E-Waste</div>
-            <div class="rate-tab" data-tab="other">Other Items</div>
-          </div>
-          
-          <!-- Metals Table -->
-          <div class="rate-content active" id="metals-content">
-            <table class="rates-table">
-              <tr>
-                <th>Material</th>
-                <th>Rate (per kg)</th>
-              </tr>
-              <tr>
-                <td>Copper</td>
-                <td>₹500-600</td>
-              </tr>
-              <tr>
-                <td>Brass</td>
-                <td>₹350</td>
-              </tr>
-              <tr>
-                <td>Aluminium</td>
-                <td>₹120</td>
-              </tr>
-              <tr>
-                <td>Steel</td>
-                <td>₹35</td>
-              </tr>
-              <tr>
-                <td>Iron</td>
-                <td>₹25</td>
-              </tr>
-              <tr>
-                <td>Tin</td>
-                <td>₹15</td>
-              </tr>
-            </table>
-          </div>
-          
-          <!-- Paper & Plastic Table -->
-          <div class="rate-content" id="paper-content">
-            <table class="rates-table">
-              <tr>
-                <th>Material</th>
-                <th>Rate (per kg)</th>
-              </tr>
-              <tr>
-                <td>Newspaper</td>
-                <td>₹10</td>
-              </tr>
-              <tr>
-                <td>Cardboard</td>
-                <td>₹10</td>
-              </tr>
-              <tr>
-                <td>Plastic</td>
-                <td>₹8</td>
-              </tr>
-            </table>
-          </div>
-          
-          <!-- E-Waste Table -->
-          <div class="rate-content" id="ewaste-content">
-            <table class="rates-table">
-              <tr>
-                <th>Item</th>
-                <th>Rate</th>
-              </tr>
-              <tr>
-                <td>Fridge (single door)</td>
-                <td>₹450 / unit</td>
-              </tr>
-              <tr>
-                <td>Fridge (double door)</td>
-                <td>₹650 / unit</td>
-              </tr>
-              <tr>
-                <td>Mobile (keypad)</td>
-                <td>₹20 / unit</td>
-              </tr>
-              <tr>
-                <td>Mobile (touch screen)</td>
-                <td>₹40 / unit</td>
-              </tr>
-              <tr>
-                <td>Computer/Laptop</td>
-                <td>₹200 / unit</td>
-              </tr>
-              <tr>
-                <td>Printer</td>
-                <td>₹15 / kg</td>
-              </tr>
-              <tr>
-                <td>Monitor/TV</td>
-                <td>₹100 / unit</td>
-              </tr>
-              <tr>
-                <td>Washing Machine</td>
-                <td>₹250 / unit</td>
-              </tr>
-              <tr>
-                <td>Xerox Machine</td>
-                <td>₹16 / kg</td>
-              </tr>
-              <tr>
-                <td>UPS/Inverter Battery</td>
-                <td>₹100 / unit</td>
-              </tr>
-              <tr>
-                <td>AC (1 Ton)</td>
-                <td>₹2500 / unit</td>
-              </tr>
-              <tr>
-                <td>AC (1.5 Ton)</td>
-                <td>₹3000 / unit</td>
-              </tr>
-              <tr>
-                <td>AC (2 Ton)</td>
-                <td>₹3500 / unit</td>
-              </tr>
-              <tr>
-                <td>Battery</td>
-                <td>₹70 / kg</td>
-              </tr>
-            </table>
-          </div>
-          
-          <!-- Other Items Table -->
-          <div class="rate-content" id="other-content">
-            <table class="rates-table">
-              <tr>
-                <th>Item</th>
-                <th>Rate</th>
-              </tr>
-              <tr>
-                <td>Tyre</td>
-                <td>₹6 / kg</td>
-              </tr>
-              <tr>
-                <td>Bike</td>
-                <td>₹2000 / unit</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        
-        <p style="text-align: center; margin-top: 16px; color: var(--text-light); font-size: 14px;">
-          Rates are indicative and may vary based on quality and market conditions
-        </p>
-      </div>
-    </section>
-
-    <!-- Areas Section -->
-    <section id="areas" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Areas We Serve</h2>
-          <p>We provide reliable scrap collection services across Nagpur</p>
-        </div>
-        
-        <div class="areas">
-          <div class="areas-grid">
-            <div class="area"><i class="fas fa-check-circle"></i> All over Nagpur</div>
-            <div class="area"><i class="fas fa-check-circle"></i> Central Nagpur</div>
-            <div class="area"><i class="fas fa-check-circle"></i> East Nagpur</div>
-            <div class="area"><i class="fas fa-check-circle"></i> West Nagpur</div>
-            <div class="area"><i class="fas fa-check-circle"></i> North Nagpur</div>
-            <div class="area"><i class="fas fa-check-circle"></i> South Nagpur</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section" style="background: #f9fafb;">
-      <div class="container">
-        <div class="section-title">
-          <h2>Contact Us</h2>
-          <p>Reach out to us for any queries or to schedule a pickup</p>
-        </div>
-        
-        <div class="contact-grid">
-          <div class="contact-info">
-            <h3>CONTACT INFORMATION</h3>
-            
-            <div class="contact-detail">
-              <i class="fas fa-phone"></i>
-              <div>
-                <strong>Phone</strong>
-                <p>+91 9511294837</p>
-              </div>
-            </div>
-            
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <strong>Email</strong>
-                <p>nagpurscrap@gmail.com</p>
-              </div>
-            </div>
-            
-            <div class="contact-detail">
-              <i class="fas fa-clock"></i>
-              <div>
-                <strong>Working Hours</strong>
-                <p>Mon-Sat: 9AM - 6PM</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>Nagpur Scrap Services</h3>
-          <p style="color: #d1d5db; margin-bottom: 20px;">Your trusted partner for responsible scrap collection and recycling in Nagpur.</p>
-        </div>
-        
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <a href="#services">Services</a>
-          <a href="#rates">Rates</a>
-          <a href="#areas">Areas</a>
-          <a href="#book">Book Pickup</a>
-        </div>
-        
-        <div class="footer-column">
-          <h3>Contact</h3>
-          <a href="tel:+919511294837">+91 9511294837</a>
-          <a href="mailto:nagpurscrap@gmail.com">nagpurscrap@gmail.com</a>
-          <a href="https://wa.me/919511294837" target="_blank">WhatsApp</a>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>© 2023 Nagpur Scrap Services. All rights reserved. | Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for a cleaner Nagpur</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/919511294837?text=Hello%20Nagpur%20Scrap%20Services%2C%20I%20want%20to%20book%20a%20pickup" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-    <span class="whatsapp-tooltip">Chat with us</span>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/+919511296837?text=Hello%20Nagpur%20Scrap%20Services%2C%20I%20want%20to%20book%20a%20pickup"
+    target="_blank"
+    class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 icon-bounce"
+    aria-label="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp text-3xl"></i>
   </a>
 
+  <div class="container mx-auto px-4 md:px-6">
+
+    <!-- Header -->
+    <header
+      class="flex items-center justify-between py-5 sticky top-0 bg-background-light z-10 border-b-2 border-primary-dark/10">
+      <div class="flex items-center gap-4">
+        <!-- Logo Image -->
+        <img src="nss.jpg" alt="Nagpur Scrap Services logo" class="h-14 w-14 rounded-full"
+          onerror="this.onerror=null;this.src='https://placehold.co/56x56/388E3C/ffffff?text=NSS';">
+        <div>
+          <div class="font-black text-xl text-primary-dark">Nagpur Scrap Services</div>
+          <div class="text-xs text-text-dark/80">Doorstep Pickup • Fair Pricing</div>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="#services" class="text-text-dark hover:text-primary transition-colors font-bold">Services</a>
+        <a href="#rates" class="text-text-dark hover:text-primary transition-colors font-bold">Rates</a>
+        <a href="#areas" class="text-text-dark hover:text-primary transition-colors font-bold">Areas</a>
+        <a href="#book" class="cta-btn text-text-dark px-6 py-2 rounded-full font-bold shadow-md">Book Pickup</a>
+      </nav>
+      <button id="menu-toggle" class="md:hidden text-2xl p-2 focus:outline-none text-text-dark">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu"
+      class="hidden md:hidden absolute top-20 right-4 bg-white rounded-lg shadow-xl p-4 space-y-4 z-20 w-48 text-right">
+      <a href="#services" class="block text-text-dark hover:text-primary font-bold">Services</a>
+      <a href="#rates" class="block text-text-dark hover:text-primary font-bold">Rates</a>
+      <a href="#areas" class="block text-text-dark hover:text-primary font-bold">Areas</a>
+      <a href="#book" class="block text-center cta-btn text-text-dark px-5 py-2 rounded-full font-bold mt-4">Book
+        Pickup</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <main>
+      <section class="py-16 md:py-24 fade-in-section">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-secondary font-semibold text-lg mb-4">
+              <i class="fas fa-check-circle text-primary"></i> 100% Guaranteed Weight
+            </p>
+            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4 text-text-dark">
+              Reliable scrap collection <br> across Nagpur
+            </h1>
+            <p class="text-lg mb-8 text-gray-700">
+              We collect metal, electronics, paper, plastics, and more — from homes, shops and small businesses.
+              Transparent weighing, same-day pickup, and responsible recycling.
+            </p>
+            <a href="#book"
+              class="cta-btn text-text-dark text-xl font-bold px-8 py-4 rounded-full shadow-lg transform hover:scale-105">
+              Book a pickup now!
+            </a>
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+              <div class="card p-4 rounded-xl text-center">
+                <div class="text-3xl font-black text-primary">5,000+ kg</div>
+                <div class="text-sm text-text-dark/80">Scrap recycled</div>
+              </div>
+              <div class="card p-4 rounded-xl text-center">
+                <div class="text-3xl font-black text-primary">4.8<span class="text-accent">★</span></div>
+                <div class="text-sm text-text-dark/80">Customer rating</div>
+              </div>
+              <div class="card p-4 rounded-xl text-center">
+                <div class="text-3xl font-black text-primary">Nagpur</div>
+                <div class="text-sm text-text-dark/80">Service area</div>
+              </div>
+            </div>
+          </div>
+          <!-- New section replacing the placeholder image -->
+          <div class="hidden md:block">
+            <div
+              class="bg-primary-dark text-white p-8 md:p-12 rounded-3xl shadow-2xl h-full flex flex-col justify-center items-center text-center">
+              <i class="fas fa-recycle text-6xl mb-4 text-accent"></i>
+              <h3 class="text-3xl md:text-4xl font-black mb-2 leading-tight">Transforming Waste, Building a Greener
+                City
+              </h3>
+              <p class="text-sm md:text-lg opacity-90 leading-relaxed">
+                Every kilogram of scrap you recycle saves energy, reduces pollution, and conserves natural resources.
+                Join us in building a greener Nagpur, one pickup at a time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Book a Pickup Section -->
+      <section id="book" class="bg-background-light p-8 md:p-12 rounded-3xl my-16 fade-in-section text-center">
+        <h2 class="text-4xl md:text-5xl font-black mb-4 text-text-dark">📦 Book Your Pickup</h2>
+        <p class="text-xl mb-10 text-gray-700">Choose your most convenient way to schedule a pickup</p>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFqitgH8ePpSY3c7ZeNXAtHrS6KOJdzpsmbWOFFYPcvkZl0Q/viewform"
+            target="_blank"
+            class="flex flex-col items-center p-6 bg-white rounded-2xl shadow-md transition-transform duration-300 hover:scale-105 card">
+            <div class="text-5xl mb-4 text-primary"><i class="fas fa-file-alt"></i></div>
+            <h4 class="font-black text-xl mb-2 text-text-dark">Fill Online Form</h4>
+            <span class="text-primary font-bold">Start Form &rarr;</span>
+          </a>
+          <a href="https://wa.me/+919511296837?text=Hello%20Nagpur%20Scrap%20Services%2C%20I%20want%20to%20book%20a%20pickup"
+            target="_blank"
+            class="flex flex-col items-center p-6 bg-white rounded-2xl shadow-md transition-transform duration-300 hover:scale-105 card">
+            <div class="text-5xl mb-4 text-[#25D366]"><i class="fab fa-whatsapp"></i></div>
+            <h4 class="font-black text-xl mb-2 text-text-dark">WhatsApp Booking</h4>
+            <span class="text-[#25D366] font-bold">Chat Now &rarr;</span>
+          </a>
+          <a href="tel:+918055124025"
+            class="flex flex-col items-center p-6 bg-white rounded-2xl shadow-md transition-transform duration-300 hover:scale-105 card">
+            <div class="text-5xl mb-4 text-primary"><i class="fas fa-phone"></i></div>
+            <h4 class="font-black text-xl mb-2 text-text-dark">Call Us Directly</h4>
+            <span class="text-primary font-bold">Call Now &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="my-16 fade-in-section">
+        <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-text-dark">What We Collect</h2>
+        <p class="text-center text-lg mb-10 text-gray-700">Doorstep convenience for every need.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="card p-6 rounded-3xl text-center">
+            <img src="residential.jpg" alt="Residential pickup"
+              class="h-24 w-auto mb-4 mx-auto rounded-xl"
+              onerror="this.onerror=null;this.src='https://placehold.co/100x100/4CAF50/ffffff?text=Residential';">
+            <h4 class="font-bold text-2xl mb-2 text-text-dark">Residential Pickup</h4>
+            <p class="text-sm text-gray-600">Small and bulk pickups from homes, apartments, and local shops across
+              Nagpur.</p>
+          </div>
+          <div class="card p-6 rounded-3xl text-center">
+            <img src="commercial.jpg" alt="Commercial collection"
+              class="h-24 w-auto mb-4 mx-auto rounded-xl"
+              onerror="this.onerror=null;this.src='https://placehold.co/100x100/4CAF50/ffffff?text=Commercial';">
+            <h4 class="font-bold text-2xl mb-2 text-text-dark">Commercial Collection</h4>
+            <p class="text-sm text-gray-600">Regular collections for workshops, stores, and offices — scheduled or on
+              demand.</p>
+          </div>
+          <div class="card p-6 rounded-3xl text-center">
+            <img src="ewaste.jpg" alt="E-waste handling"
+              class="h-24 w-auto mb-4 mx-auto rounded-xl"
+              onerror="this.onerror=null;this.src='https://placehold.co/100x100/4CAF50/ffffff?text=E-waste';">
+            <h4 class="font-bold text-2xl mb-2 text-text-dark">E-waste Handling</h4>
+            <p class="text-sm text-gray-600">Safe dismantling and recycling of electronics — certified disposal practices.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rates Section with Tabs -->
+      <section id="rates" class="my-16 fade-in-section">
+        <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-text-dark">Scrap Rates (per kg)</h2>
+        <p class="text-center text-lg mb-10 text-gray-700">Transparent pricing for every material.</p>
+
+        <div class="card rounded-3xl p-6">
+          <!-- Tab Headers -->
+          <div class="flex flex-wrap gap-4 border-b border-gray-200 mb-6">
+            <button class="tab-button active font-bold text-lg px-4 py-2 rounded-t-lg transition-colors duration-200"
+              data-tab="metals">Metals</button>
+            <button class="tab-button font-bold text-lg px-4 py-2 rounded-t-lg transition-colors duration-200"
+              data-tab="paper-plastic">Paper & Plastic</button>
+            <button class="tab-button font-bold text-lg px-4 py-2 rounded-t-lg transition-colors duration-200"
+              data-tab="e-waste">E-Waste</button>
+            <button class="tab-button font-bold text-lg px-4 py-2 rounded-t-lg transition-colors duration-200"
+              data-tab="other-items">Other Items</button>
+          </div>
+
+          <!-- Tab Content -->
+          <div id="tab-content">
+            <!-- Metals Table -->
+            <div id="metals-content" class="tab-pane overflow-x-auto">
+              <table class="w-full text-left">
+                <thead>
+                  <tr>
+                    <th class="p-4 rounded-tl-2xl">Material</th>
+                    <th class="p-4 rounded-tr-2xl">Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Tin</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹15 / kg</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Copper</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹500-600 / kg</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Brass</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹350 / kg</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Aluminium</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹120 / kg</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Iron</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹25 / kg</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Steel</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹35 / kg</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Paper & Plastic Table (hidden by default) -->
+            <div id="paper-plastic-content" class="tab-pane hidden overflow-x-auto">
+              <table class="w-full text-left">
+                <thead>
+                  <tr>
+                    <th class="p-4 rounded-tl-2xl">Material</th>
+                    <th class="p-4 rounded-tr-2xl">Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">News Paper</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹10 / kg</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Cardboard</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹10 / kg</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Plastic</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹8 / kg</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- E-Waste Table (hidden by default) -->
+            <div id="e-waste-content" class="tab-pane hidden overflow-x-auto">
+              <table class="w-full text-left">
+                <thead>
+                  <tr>
+                    <th class="p-4 rounded-tl-2xl">Material</th>
+                    <th class="p-4 rounded-tr-2xl">Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Laptops & PCs</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹40 / kg</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Mobile Phones</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹15 / piece</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Wires & Cables</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹100 / kg</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Other Items Table (hidden by default) -->
+            <div id="other-items-content" class="tab-pane hidden overflow-x-auto">
+              <table class="w-full text-left">
+                <thead>
+                  <tr>
+                    <th class="p-4 rounded-tl-2xl">Material</th>
+                    <th class="p-4 rounded-tr-2xl">Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Batteries</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹50 / kg</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Glass Bottles</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹5 / bottle</td>
+                  </tr>
+                  <tr class="hover:bg-background-dark transition-colors duration-200">
+                    <td class="p-4 font-semibold">Tyres</td>
+                    <td class="p-4 text-xl font-bold text-secondary">₹50 / piece</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Areas Section -->
+      <section id="areas" class="my-16 fade-in-section">
+        <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-text-dark">Areas We Cover</h2>
+        <p class="text-center text-lg mb-10 text-gray-700">Providing service across the entire city of Nagpur.</p>
+        <div class="card p-8 rounded-3xl">
+          <div class="flex flex-wrap gap-4 items-center justify-center font-bold text-xl text-primary">
+            <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> All over Nagpur</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="bg-background-light p-8 md:p-12 rounded-3xl my-16 fade-in-section">
+        <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-text-dark">Get in Touch</h2>
+        <div class="grid md:grid-cols-2 gap-8 bg-white p-8 md:p-12 rounded-3xl shadow-xl text-text-dark">
+          <div>
+            <h3 class="font-bold text-secondary uppercase tracking-wider mb-2">Contact Details</h3>
+            <p class="mb-4"><strong>Nagpur Scrap Services</strong></p>
+            <p class="mb-2">Phone: <strong class="text-primary">+91 8055124025</strong></p>
+            <p class="mb-4">Email: <a href="mailto:contact@nagpurscrap.example"
+                class="text-primary hover:underline">contact@nagpurscrap.example</a></p>
+
+            <h3 class="font-bold text-secondary uppercase tracking-wider mb-2 mt-6">Contact Hours</h3>
+            <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
+            <p>Sunday: Closed</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-secondary uppercase tracking-wider mb-2">Our Location</h3>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.772469738581!2d79.0882!3d21.1458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0e3a1f81d8f%3A0x6a1c8b3e8c2a8f8d!2sNagpur%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1689252345063!5m2!1sen!2sus"
+              width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" class="rounded-3xl shadow-md">
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-sm text-text-dark/80 border-t-2 border-primary mt-16 fade-in-section">
+      <p class="mb-2">© <strong>Nagpur Scrap Services</strong> — Responsible recycling in Nagpur.</p>
+      <p>Made with care • Call +91 9876543210</p>
+    </footer>
+  </div>
+
+  <!-- A modal to show custom messages instead of alert() -->
+  <div id="custom-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <p id="modal-message" class="text-lg font-semibold"></p>
+        <button id="modal-ok" class="mt-4 px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">OK</button>
+    </div>
+  </div>
+
   <script>
-    // Mobile menu toggle
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
-      document.getElementById('main-nav').classList.toggle('active');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Function to show the custom modal
+    function showModal(message) {
+        const modal = document.getElementById('custom-modal');
+        const modalMessage = document.getElementById('modal-message');
+        modalMessage.textContent = message;
+        modal.style.display = 'flex';
+    }
+
+    // Function to close the custom modal
+    function closeModal() {
+        const modal = document.getElementById('custom-modal');
+        modal.style.display = 'none';
+    }
+
+    // Event listeners for the modal
+    document.querySelector('.close-button').onclick = closeModal;
+    document.getElementById('modal-ok').onclick = closeModal;
+    window.onclick = function(event) {
+        const modal = document.getElementById('custom-modal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
-    
-    // Rates tabs functionality
-    const rateTabs = document.querySelectorAll('.rate-tab');
-    rateTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Remove active class from all tabs and contents
-        document.querySelectorAll('.rate-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.rate-content').forEach(c => c.classList.remove('active'));
-        
-        // Add active class to clicked tab and corresponding content
-        tab.classList.add('active');
-        const tabId = tab.getAttribute('data-tab');
-        document.getElementById(`${tabId}-content`).classList.add('active');
+
+    // Hide menu on link click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
       });
     });
-    
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('main-nav').classList.remove('active');
+
+    // Add animations on scroll
+    const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    fadeInSections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Tab functionality for Rates section
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove 'active' class from all buttons and hide all panes
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.add('hidden'));
+
+        // Add 'active' class to the clicked button
+        button.classList.add('active');
+
+        // Show the corresponding tab pane
+        const targetId = button.getAttribute('data-tab');
+        const targetPane = document.getElementById(targetId + '-content');
+        if (targetPane) {
+          targetPane.classList.remove('hidden');
+        }
       });
     });
   </script>
 </body>
+
 </html>
