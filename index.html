@@ -3,293 +3,1090 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nagpur Scrap Services — Reliable Scrap Collection</title>
+  <title>Nagpur Scrap Services — Reliable Scrap Collection & Recycling</title>
   <meta name="description" content="Nagpur's trusted scrap collection & recycling service — doorstep pickup, fair pricing, safe disposal." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root{
-      --accent:#1f7a5a;
-      --muted:#6b7280;
-      --bg:#f8fafb;
-      --card:#ffffff;
-      --max-width:1100px;
+    :root {
+      --primary: #1f7a5a;
+      --primary-dark: #166145;
+      --primary-light: #e7f9f0;
+      --secondary: #2563eb;
+      --secondary-light: #e0e7ff;
+      --accent: #f59e0b;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --bg: #f8fafb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --radius: 8px;
+      --radius-lg: 12px;
+      --max-width: 1200px;
       font-family: 'Inter', system-ui, sans-serif;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:#111;line-height:1.45}
-    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
-
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;position:sticky;top:0;background:var(--bg);z-index:1000}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo-img{width:56px;height:56px;border-radius:8px;object-fit:cover}
-    nav{display:flex;gap:18px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600}
-    nav a:hover{color:var(--accent)}
-    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700}
-    .cta:hover{background:#166645}
-
-    /* Mobile menu button */
-    .menu-toggle{
-      display:none;
-      font-size:28px;
-      cursor:pointer;
-      background:none;
-      border:none;
-      color:#111;
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:40px 0}
-    .hero h1{font-size:34px;margin:0 0 14px;line-height:1.2}
-    .hero p{color:var(--muted);margin:0 0 18px;font-size:16px}
-    .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .stat{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(12,12,13,0.04);text-align:center;flex:1;min-width:100px}
-    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 8px 30px rgba(12,12,13,0.06)}
-
-    /* Services */
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
-    .service{padding:18px;border-radius:10px;border:1px solid #eef1f4;text-align:center;background:#fff;transition:0.2s}
-    .service:hover{box-shadow:0 6px 20px rgba(0,0,0,0.08)}
-    .service h4{margin:10px 0 8px}
-    .service p{margin:0;color:var(--muted);font-size:14px}
-    .service img{width:80px;height:80px;object-fit:cover;border-radius:10px;margin-bottom:8px}
-
-    /* Rates */
-    .rates{margin:18px 0;overflow-x:auto}
-    table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.04);min-width:400px}
-    th,td{padding:12px 16px;text-align:left;border-bottom:1px solid #f0f0f0}
-    th{background:var(--accent);color:#fff;text-align:left}
-    /* Subtable for e-waste */
-    .rates table table th, .rates table table td {
-      padding:6px 8px;
-      border:1px solid #ddd;
-      font-size:14px;
+    
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-weight: 400;
     }
-    .rates table table th {background:#f3f4f6;color:#111;}
-
-    /* Areas */
-    .areas{background:#fff;padding:18px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.04);display:flex;flex-wrap:wrap;gap:10px}
-    .area{flex:1 1 160px;display:flex;align-items:center;gap:6px;color:var(--muted)}
-
-    footer{padding:28px 0;color:var(--muted);font-size:14px}
-
-    /* Floating WhatsApp button */
+    
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header & Navigation */
+    header {
+      background: var(--card);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 15px 0;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+    
+    .brand-text h1 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+    }
+    
+    .brand-text p {
+      font-size: 12px;
+      color: var(--text-light);
+      margin: 0;
+    }
+    
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.2s;
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .cta {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    
+    .cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--text);
+    }
+    
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 60px 0;
+    }
+    
+    .hero-content h2 {
+      font-size: 16px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .hero-content h1 {
+      font-size: 42px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    
+    .hero-content p {
+      color: var(--text-light);
+      margin-bottom: 28px;
+      font-size: 17px;
+    }
+    
+    .stats {
+      display: flex;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    
+    .stat {
+      background: var(--card);
+      padding: 16px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      flex: 1;
+    }
+    
+    .stat-value {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    
+    /* Booking Card */
+    .booking-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .booking-card h3 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    
+    .booking-card > p {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+    
+    .booking-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    
+    .booking-option {
+      background: #f9fafb;
+      padding: 20px;
+      border-radius: var(--radius);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .booking-option:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .booking-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    
+    .booking-option h4 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    
+    .booking-option p {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+    
+    .btn-whatsapp:hover {
+      background: #128C7E;
+    }
+    
+    .btn-secondary {
+      background: var(--secondary);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: #1d4ed8;
+    }
+    
+    /* Services Section */
+    .section {
+      padding: 60px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .section-title h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    
+    .section-title p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .service {
+      background: var(--card);
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin: 0 auto 16px;
+      display: block;
+    }
+    
+    .service h3 {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+    
+    .service p {
+      color: var(--text-light);
+      font-size: 15px;
+    }
+    
+    /* Rates Section */
+    .rates-container {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    
+    .rates-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      background: #f9fafb;
+    }
+    
+    .rate-tab {
+      padding: 14px 20px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .rate-tab.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      background: white;
+    }
+    
+    .rate-content {
+      display: none;
+      padding: 0;
+    }
+    
+    .rate-content.active {
+      display: block;
+    }
+    
+    .rates-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .rates-table th {
+      background: var(--primary);
+      color: white;
+      text-align: left;
+      padding: 14px 16px;
+      font-weight: 600;
+    }
+    
+    .rates-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .rates-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .rates-table tr:nth-child(even) {
+      background: #f9fafb;
+    }
+    
+    .sub-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+    }
+    
+    .sub-table th {
+      background: #f3f4f6;
+      color: var(--text);
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    
+    .sub-table td {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+    }
+    
+    /* Areas Section */
+    .areas {
+      background: var(--card);
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    
+    .area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-light);
+    }
+    
+    .area i {
+      color: var(--primary);
+    }
+    
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .contact-info {
+      background: var(--card);
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .contact-info h3 {
+      color: var(--text-light);
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .contact-detail i {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--text);
+      color: white;
+      padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: white;
+    }
+    
+    .footer-column a {
+      color: #d1d5db;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    
+    .footer-column a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      padding-top: 20px;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+    
+    /* WhatsApp Float Button */
     .whatsapp-float {
-      position:fixed;bottom:20px;right:20px;
-      background:#25D366;color:#fff;
-      padding:14px 16px;border-radius:50%;
-      font-size:24px;text-align:center;
-      box-shadow:0 4px 12px rgba(0,0,0,0.2);
-      z-index:1000;text-decoration:none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+      transition: all 0.3s;
+      text-decoration: none;
     }
-    .whatsapp-float::after{
-      content:"Chat on WhatsApp";
-      position:absolute;right:70px;bottom:22px;
-      background:#111;color:#fff;padding:4px 8px;
-      border-radius:6px;font-size:12px;opacity:0;
-      transition:0.3s;white-space:nowrap;
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background: #128C7E;
     }
-    .whatsapp-float:hover::after{opacity:1}
-
-    html{scroll-behavior:smooth}
-
-    /* Responsive */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      .services{grid-template-columns:repeat(2,1fr)}
+    
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 70px;
+      background: var(--text);
+      color: white;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
     }
-    @media (max-width:560px){
-      .logo-img{width:46px;height:46px}
-      .hero h1{font-size:26px}
-      .services{grid-template-columns:1fr}
-      nav{display:none;flex-direction:column;gap:12px;position:absolute;top:70px;right:20px;background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.1)}
-      nav.active{display:flex}
-      .menu-toggle{display:block}
+    
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .hero-content h1 {
+        font-size: 36px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 0 15px;
+      }
+      
+      nav {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--card);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: var(--shadow-md);
+        gap: 15px;
+      }
+      
+      nav.active {
+        display: flex;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .stats {
+        flex-wrap: wrap;
+      }
+      
+      .stat {
+        flex: 1 0 calc(50% - 8px);
+        min-width: 0;
+      }
+      
+      .services {
+        grid-template-columns: 1fr;
+      }
+      
+      .section {
+        padding: 40px 0;
+      }
+      
+      .section-title h2 {
+        font-size: 28px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 30px;
+      }
+      
+      .stat {
+        flex: 1 0 100%;
+      }
+      
+      .booking-card {
+        padding: 20px;
+      }
+      
+      .areas-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
       <div class="brand">
         <img src="logo.jpg" alt="Nagpur Scrap Services Logo" class="logo-img">
-        <div>
-          <div style="font-weight:700">Nagpur Scrap Services</div>
-          <div style="font-size:12px;color:var(--muted)">Doorstep pickup • Fair prices • Eco friendly</div>
+        <div class="brand-text">
+          <h1>Nagpur Scrap Services</h1>
+          <p>Doorstep pickup • Fair prices • Eco friendly</p>
         </div>
       </div>
-      <!-- Menu toggle button for mobile -->
-      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-      <nav>
+      
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <nav id="main-nav">
         <a href="#services">Services</a>
         <a href="#rates">Rates</a>
         <a href="#areas">Areas</a>
         <a href="#book">Book Pickup</a>
         <a href="#contact">Contact</a>
+        <a href="tel:+919511294837" class="cta">Call Now</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <!-- Hero -->
-      <section class="hero">
-        <div>
-          <!-- NSS Logo -->
-          <div style="text-align:center; margin-bottom:10px;">
-            <img src="nss.jpg" alt="NSS Logo" style="height:50px; object-fit:contain;">
-          </div>
-          <p style="color:var(--accent); font-weight:700; font-size:18px; margin:0 0 10px;">
-            ✅ 100% Weight Guaranteed
-          </p>
-          <h1>Reliable scrap collection across Nagpur</h1>
+  <main>
+    <!-- Hero Section -->
+    <section class="container">
+      <div class="hero">
+        <div class="hero-content">
+          <h2><i class="fas fa-check-circle"></i> 100% Weight Guaranteed</h2>
+          <h1>Reliable Scrap Collection Across Nagpur</h1>
           <p>We collect metal, electronics, paper, plastics and more — from homes, shops and small businesses. Transparent weighing, same-day pickup, and responsible recycling.</p>
+          
           <div class="stats">
-            <div class="stat"><div style="font-weight:700">5,000+ kg</div><div style="font-size:12px;color:var(--muted)">Scrap recycled</div></div>
-            <div class="stat"><div style="font-weight:700">4.8★</div><div style="font-size:12px;color:var(--muted)">Customer rating</div></div>
-            <div class="stat"><div style="font-weight:700">Nagpur</div><div style="font-size:12px;color:var(--muted)">Service area</div></div>
+            <div class="stat">
+              <div class="stat-value">5,000+ kg</div>
+              <div class="stat-label">Scrap recycled</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">4.8★</div>
+              <div class="stat-label">Customer rating</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">Nagpur</div>
+              <div class="stat-label">Service area</div>
+            </div>
           </div>
         </div>
-
-        <!-- Booking -->
-        <aside id="book" class="card" style="padding:0; background:transparent; box-shadow:none">
-          <h3 style="text-align:center; font-size:24px; margin-bottom:8px">📦 Book a Pickup</h3>
-          <p style="text-align:center; color:#6b7280; margin:0 0 20px">Choose your preferred way to schedule a pickup</p>
-
-          <div style="display:grid; grid-template-columns:1fr; gap:14px; max-width:380px; margin:auto">
-            <!-- Online Form -->
-            <div style="background:#fff; padding:16px; border-radius:12px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.05)">
-              <div style="font-size:30px">📄</div>
-              <h4 style="margin:10px 0 4px">Book for pickup</h4>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFqitgH8ePpSY3c7ZeNXAtHrS6KOJdzpsmbWOFFYPcvkZl0Q/viewform"
-                 target="_blank"
-                 style="display:inline-block; margin-top:8px; padding:10px 14px; background:#2563eb; color:#fff; border-radius:8px; text-decoration:none; font-weight:600">
-                 ✍️ Fill Form
+        
+        <!-- Booking Card -->
+        <div id="book" class="booking-card">
+          <h3><i class="fas fa-calendar-check"></i> Book a Pickup</h3>
+          <p>Choose your preferred way to schedule a pickup</p>
+          
+          <div class="booking-options">
+            <div class="booking-option">
+              <div class="booking-icon">📄</div>
+              <h4>Online Form</h4>
+              <p>Fill our simple form for pickup request</p>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFqitgH8ePpSY3c7ZeNXAtHrS6KOJdzpsmbWOFFYPcvkZl0Q/viewform" target="_blank" class="btn btn-primary">
+                <i class="fas fa-pen"></i> Fill Form
               </a>
             </div>
-            <!-- WhatsApp -->
-            <div style="background:#e7f9f0; padding:16px; border-radius:12px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.05)">
-              <div style="font-size:30px">💬</div>
-              <h4 style="margin:10px 0 4px">WhatsApp Booking</h4>
-              <a href="https://wa.me/9511296837?text=Hello%20Nagpur%20Scrap%20Services%2C%20I%20want%20to%20book%20a%20pickup"
-                 target="_blank"
-                 style="display:inline-block; margin-top:8px; padding:10px 14px; background:#25D366; color:#fff; border-radius:8px; text-decoration:none; font-weight:600">
-                 📲 Book on WhatsApp
+            
+            <div class="booking-option">
+              <div class="booking-icon">💬</div>
+              <h4>WhatsApp</h4>
+              <p>Message us directly on WhatsApp</p>
+              <a href="https://wa.me/919511294837?text=Hello%20Nagpur%20Scrap%20Services%2C%20I%20want%20to%20book%20a%20pickup" target="_blank" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chat Now
               </a>
             </div>
-            <!-- Phone Call -->
-            <div style="background:#fff; padding:16px; border-radius:12px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.05)">
-              <div style="font-size:30px">📞</div>
-              <h4 style="margin:10px 0 4px">Call Us Directly</h4>
-              <a href="tel:+919876543210"
-                 style="display:inline-block; margin-top:8px; padding:10px 14px; background:var(--accent); color:#fff; border-radius:8px; text-decoration:none; font-weight:600">
-                 📞 Call Now
+            
+            <div class="booking-option">
+              <div class="booking-icon">📞</div>
+              <h4>Call Directly</h4>
+              <p>Speak with our representative</p>
+              <a href="tel:+919511294837" class="btn btn-secondary">
+                <i class="fas fa-phone"></i> Call Now
               </a>
             </div>
           </div>
-        </aside>
-      </section>
+        </div>
+      </div>
+    </section>
 
-      <!-- Services -->
-      <section id="services" style="margin-top:20px">
-        <h2>Services we provide</h2>
+    <!-- Services Section -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>Comprehensive scrap collection and recycling solutions for homes and businesses</p>
+        </div>
+        
         <div class="services">
           <div class="service">
-            <img src="residential.jpg" alt="Residential Scrap Pickup">
-            <h4>Residential pickup</h4>
+            <img src="residential.jpg" alt="Residential Scrap Pickup" class="service-icon">
+            <h3>Residential Pickup</h3>
             <p>Small and bulk pickups from houses, apartments and local shops across Nagpur.</p>
           </div>
+          
           <div class="service">
-            <img src="commercial.jpg" alt="Commercial Scrap Collection">
-            <h4>Commercial collection</h4>
+            <img src="commercial.jpg" alt="Commercial Scrap Collection" class="service-icon">
+            <h3>Commercial Collection</h3>
             <p>Regular collections for workshops, stores and offices — scheduled or on demand.</p>
           </div>
+          
           <div class="service">
-            <img src="ewaste.jpg" alt="E-waste Recycling">
-            <h4>E-waste handling</h4>
+            <img src="ewaste.jpg" alt="E-waste Recycling" class="service-icon">
+            <h3>E-waste Handling</h3>
             <p>Safe dismantling and recycling of electronics — certified disposal practices.</p>
           </div>
         </div>
-      </section>
-
-      <!-- Rates -->
-      <section id="rates" style="margin-top:18px">
-        <h2>Scrap Rates (per kg/unit)</h2>
-        <div class="rates">
-          <table>
-            <tr><th>Material</th><th>Rate</th></tr>
-            <tr><td>Tin</td><td>₹15 / kg</td></tr>
-            <tr><td>Copper</td><td>₹500-600 / kg</td></tr>
-            <tr><td>Brass</td><td>₹350 / kg</td></tr>
-            <tr><td>Aluminium</td><td>₹120 / kg</td></tr>
-            <tr><td>News Paper</td><td>₹10 / kg</td></tr>
-            <tr><td>Cardboard</td><td>₹10 / kg</td></tr>
-            <tr><td>Iron</td><td>₹25 / kg</td></tr>
-            <tr><td>Steel</td><td>₹35 / kg</td></tr>
-            <tr><td>Plastic</td><td>₹8 / kg</td></tr>
-            <tr>
-              <td>E-waste
-                <table style="width:100%; margin-top:6px; border-collapse:collapse;">
-                  <tr style="background:#f3f4f6;"><th style="padding:6px 8px; border:1px solid #ddd;">Item</th><th style="padding:6px 8px; border:1px solid #ddd;">Rate</th></tr>
-                  <tr><td style="padding:6px 8px; border:1px solid #ddd;">Fridge (single door)</td><td style="padding:6px 8px; border:1px solid #ddd;">₹450 / unit</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">Fridge (double door)</td><td style="padding:6px 8px; border:1px solid #ddd;">₹650 / unit</td></tr>
-                  <tr><td style="padding:6px 8px; border:1px solid #ddd;">mobile phones (keypad)</td><td style="padding:6px 8px; border:1px solid #ddd;">₹20 / unit</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">mobile phones (touch screen)</td><td style="padding:6px 8px; border:1px solid #ddd;">₹40 / unit</td></tr>
-                  <tr><td style="padding:6px 8px; border:1px solid #ddd;">Computer/laptop</td><td style="padding:6px 8px; border:1px solid #ddd;">₹200 / unit</td></tr>
-    <tr><td style="padding:6px 8px; border:1px solid #ddd;">printer</td><td style="padding:6px 8px; border:1px solid #ddd;">₹15 / KG</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">monitor/t.v</td><td style="padding:6px 8px; border:1px solid #ddd;">₹100 / unit</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">washing machine</td><td style="padding:6px 8px; border:1px solid #ddd;">₹250 / unit</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">xerox machine</td><td style="padding:6px 8px; border:1px solid #ddd;">₹16 / KG</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">ups/inverter battery</td><td style="padding:6px 8px; border:1px solid #ddd;">₹100 / unit</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">A.C(1 Ton)</td><td style="padding:6px 8px; border:1px solid #ddd;">₹2500 / unit</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">A.C (1.5 Ton)</td><td style="padding:6px 8px; border:1px solid #ddd;">₹3000 / unit</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">A.C (2 Ton)</td><td style="padding:6px 8px; border:1px solid #ddd;">₹3500 / unit</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">battery</td><td style="padding:6px 8px; border:1px solid #ddd;">₹70/ KG</td></tr>
-<tr>
-<td>others
-                <table style="width:100%; margin-top:6px; border-collapse:collapse;">
-                  <tr style="background:#f3f4f6;"><th style="padding:6px 8px; border:1px solid #ddd;">Item</th><th style="padding:6px 8px; border:1px solid #ddd;">Rate</th></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">tyre</td><td style="padding:6px 8px; border:1px solid #ddd;">₹6/ KG</td></tr>
-  <tr><td style="padding:6px 8px; border:1px solid #ddd;">bike</td><td style="padding:6px 8px; border:1px solid #ddd;">₹2000/ unit</td></tr>
-                </table>
-              </td>
-              <td>Varies per item</td>
-            </tr>
-          </table>
-        </div>
-      </section>
-
-      <!-- Areas -->
-      <section id="areas" style="margin-top:18px">
-        <h2>Areas we cover — Nagpur only</h2>
-        <div class="areas">
-          <div class="area">✔️ All over Nagpur</div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" style="margin-top:18px">
-        <h2>Contact</h2>
-        <div class="card" style="display:grid;grid-template-columns:1fr;gap:12px">
-          <div>
-            <h3 style="margin-top:0;color:var(--muted)">CONTACT HOURS</h3>
-            <p style="margin:0 0 8px"><strong>Nagpur Scrap Services</strong></p>
-            <p style="margin:0">Phone: <strong>+91 8055124025</strong><br>Email: <a href="mailto:contact@nagpurscrap.example">nagpurscrap@gmail.com</a></p>
-          </div>
-          <div>
-                      </div>
-        </div>
-      </section>
-    </main>
-
-    <footer style="margin-top:28px">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-        <div>© <strong>Nagpur Scrap Services</strong> — Responsible recycling in Nagpur.</div>
-        <div style="color:var(--muted)">Made with care • Call +91 9876543210</div>
       </div>
-    </footer>
-  </div>
+    </section>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/9511296837?text=Hello%20Nagpur%20Scrap%20Services%2C%20I%20want%20to%20book%20a%20pickup" 
-     target="_blank" class="whatsapp-float" aria-label="
+    <!-- Rates Section -->
+    <section id="rates" class="section" style="background: #f9fafb;">
+      <div class="container">
+        <div class="section-title">
+          <h2>Scrap Material Rates</h2>
+          <p>Current market rates per kg/unit (subject to change based on market conditions)</p>
+        </div>
+        
+        <div class="rates-container">
+          <div class="rates-tabs">
+            <div class="rate-tab active" data-tab="metals">Metals</div>
+            <div class="rate-tab" data-tab="paper">Paper & Plastic</div>
+            <div class="rate-tab" data-tab="ewaste">E-Waste</div>
+            <div class="rate-tab" data-tab="other">Other Items</div>
+          </div>
+          
+          <!-- Metals Table -->
+          <div class="rate-content active" id="metals-content">
+            <table class="rates-table">
+              <tr>
+                <th>Material</th>
+                <th>Rate (per kg)</th>
+              </tr>
+              <tr>
+                <td>Copper</td>
+                <td>₹500-600</td>
+              </tr>
+              <tr>
+                <td>Brass</td>
+                <td>₹350</td>
+              </tr>
+              <tr>
+                <td>Aluminium</td>
+                <td>₹120</td>
+              </tr>
+              <tr>
+                <td>Steel</td>
+                <td>₹35</td>
+              </tr>
+              <tr>
+                <td>Iron</td>
+                <td>₹25</td>
+              </tr>
+              <tr>
+                <td>Tin</td>
+                <td>₹15</td>
+              </tr>
+            </table>
+          </div>
+          
+          <!-- Paper & Plastic Table -->
+          <div class="rate-content" id="paper-content">
+            <table class="rates-table">
+              <tr>
+                <th>Material</th>
+                <th>Rate (per kg)</th>
+              </tr>
+              <tr>
+                <td>Newspaper</td>
+                <td>₹10</td>
+              </tr>
+              <tr>
+                <td>Cardboard</td>
+                <td>₹10</td>
+              </tr>
+              <tr>
+                <td>Plastic</td>
+                <td>₹8</td>
+              </tr>
+            </table>
+          </div>
+          
+          <!-- E-Waste Table -->
+          <div class="rate-content" id="ewaste-content">
+            <table class="rates-table">
+              <tr>
+                <th>Item</th>
+                <th>Rate</th>
+              </tr>
+              <tr>
+                <td>Fridge (single door)</td>
+                <td>₹450 / unit</td>
+              </tr>
+              <tr>
+                <td>Fridge (double door)</td>
+                <td>₹650 / unit</td>
+              </tr>
+              <tr>
+                <td>Mobile (keypad)</td>
+                <td>₹20 / unit</td>
+              </tr>
+              <tr>
+                <td>Mobile (touch screen)</td>
+                <td>₹40 / unit</td>
+              </tr>
+              <tr>
+                <td>Computer/Laptop</td>
+                <td>₹200 / unit</td>
+              </tr>
+              <tr>
+                <td>Printer</td>
+                <td>₹15 / kg</td>
+              </tr>
+              <tr>
+                <td>Monitor/TV</td>
+                <td>₹100 / unit</td>
+              </tr>
+              <tr>
+                <td>Washing Machine</td>
+                <td>₹250 / unit</td>
+              </tr>
+              <tr>
+                <td>Xerox Machine</td>
+                <td>₹16 / kg</td>
+              </tr>
+              <tr>
+                <td>UPS/Inverter Battery</td>
+                <td>₹100 / unit</td>
+              </tr>
+              <tr>
+                <td>AC (1 Ton)</td>
+                <td>₹2500 / unit</td>
+              </tr>
+              <tr>
+                <td>AC (1.5 Ton)</td>
+                <td>₹3000 / unit</td>
+              </tr>
+              <tr>
+                <td>AC (2 Ton)</td>
+                <td>₹3500 / unit</td>
+              </tr>
+              <tr>
+                <td>Battery</td>
+                <td>₹70 / kg</td>
+              </tr>
+            </table>
+          </div>
+          
+          <!-- Other Items Table -->
+          <div class="rate-content" id="other-content">
+            <table class="rates-table">
+              <tr>
+                <th>Item</th>
+                <th>Rate</th>
+              </tr>
+              <tr>
+                <td>Tyre</td>
+                <td>₹6 / kg</td>
+              </tr>
+              <tr>
+                <td>Bike</td>
+                <td>₹2000 / unit</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 16px; color: var(--text-light); font-size: 14px;">
+          Rates are indicative and may vary based on quality and market conditions
+        </p>
+      </div>
+    </section>
+
+    <!-- Areas Section -->
+    <section id="areas" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Areas We Serve</h2>
+          <p>We provide reliable scrap collection services across Nagpur</p>
+        </div>
+        
+        <div class="areas">
+          <div class="areas-grid">
+            <div class="area"><i class="fas fa-check-circle"></i> All over Nagpur</div>
+            <div class="area"><i class="fas fa-check-circle"></i> Central Nagpur</div>
+            <div class="area"><i class="fas fa-check-circle"></i> East Nagpur</div>
+            <div class="area"><i class="fas fa-check-circle"></i> West Nagpur</div>
+            <div class="area"><i class="fas fa-check-circle"></i> North Nagpur</div>
+            <div class="area"><i class="fas fa-check-circle"></i> South Nagpur</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background: #f9fafb;">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>Reach out to us for any queries or to schedule a pickup</p>
+        </div>
+        
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>CONTACT INFORMATION</h3>
+            
+            <div class="contact-detail">
+              <i class="fas fa-phone"></i>
+              <div>
+                <strong>Phone</strong>
+                <p>+91 9511294837</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <strong>Email</strong>
+                <p>nagpurscrap@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <i class="fas fa-clock"></i>
+              <div>
+                <strong>Working Hours</strong>
+                <p>Mon-Sat: 9AM - 6PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Nagpur Scrap Services</h3>
+          <p style="color: #d1d5db; margin-bottom: 20px;">Your trusted partner for responsible scrap collection and recycling in Nagpur.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <a href="#services">Services</a>
+          <a href="#rates">Rates</a>
+          <a href="#areas">Areas</a>
+          <a href="#book">Book Pickup</a>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <a href="tel:+919511294837">+91 9511294837</a>
+          <a href="mailto:nagpurscrap@gmail.com">nagpurscrap@gmail.com</a>
+          <a href="https://wa.me/919511294837" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2023 Nagpur Scrap Services. All rights reserved. | Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for a cleaner Nagpur</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/919511294837?text=Hello%20Nagpur%20Scrap%20Services%2C%20I%20want%20to%20book%20a%20pickup" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat with us</span>
+  </a>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.getElementById('main-nav').classList.toggle('active');
+    });
+    
+    // Rates tabs functionality
+    const rateTabs = document.querySelectorAll('.rate-tab');
+    rateTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs and contents
+        document.querySelectorAll('.rate-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.rate-content').forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked tab and corresponding content
+        tab.classList.add('active');
+        const tabId = tab.getAttribute('data-tab');
+        document.getElementById(`${tabId}-content`).classList.add('active');
+      });
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('main-nav').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
